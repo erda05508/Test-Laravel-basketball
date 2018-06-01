@@ -118,5 +118,22 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 2]);
         });
 
+        // Auth gates for: Players
+        Gate::define('coach_access', function ($user) {
+            return in_array($user->role_id, [1, 2, 3, 4]);
+        });
+        Gate::define('coach_create', function ($user) {
+            return in_array($user->role_id, [1, 2, 3, 4]);
+        });
+        Gate::define('coach_edit', function ($user) {
+            return in_array($user->role_id, [1, 2, 3]);
+        });
+        Gate::define('coach_view', function ($user) {
+            return in_array($user->role_id, [1, 2, 3, 4]);
+        });
+        Gate::define('coach_delete', function ($user) {
+            return in_array($user->role_id, [1, 2, 3]);
+        });
+
     }
 }

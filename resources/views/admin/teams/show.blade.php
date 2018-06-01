@@ -76,6 +76,55 @@
     </tbody>
 </table>
 </div>
+
+<div role="tabpanel" class="tab-pane active" id="players">
+<table class="table table-bordered table-striped {{ count($coaches) > 0 ? 'datatable' : '' }}">
+    <thead>
+        <tr>
+            <th>@lang('quickadmin.coaches.fields.team')</th>
+                        <th>@lang('quickadmin.coaches.fields.name')</th>
+                        <th>@lang('quickadmin.coaches.fields.country')</th>
+                        <th>@lang('quickadmin.coaches.fields.birth-date')</th>
+                        <th>&nbsp;</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (count($coaches) > 0)
+            @foreach ($coaches as $coach)
+                <tr data-entry-id="{{ $coach->id }}">
+                    <td>{{ $coach->team->name or '' }}</td>
+                                <td>{{ $coach->name }}</td>
+                                <td>{{ $coach->country }}</td>
+                                <td>{{ $coach->birth_date }}</td>
+                                <td>
+                                    @can('coach_view')
+                                    <a href="{{ route('admin.coaches.show',[$coach->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
+                                    @endcan
+                                    @can('coach_edit')
+                                    <a href="{{ route('admin.coaches.edit',[$coach->id]) }}" class="btn btn-xs btn-info">@lang('quickadmin.qa_edit')</a>
+                                    @endcan
+                                    @can('coach_delete')
+                                    {!! Form::open(array(
+                                        'style' => 'display: inline-block;',
+                                        'method' => 'DELETE',
+                                        'onsubmit' => "return confirm('".trans("quickadmin.qa_are_you_sure")."');",
+                                        'route' => ['admin.coaches.destroy', $coach->id])) !!}
+                                    {!! Form::submit(trans('quickadmin.qa_delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                    {!! Form::close() !!}
+                                    @endcan
+                                </td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="8">@lang('quickadmin.qa_no_entries_in_table')</td>
+            </tr>
+        @endif
+    </tbody>
+</table>
+</div>
+
 <div role="tabpanel" class="tab-pane " id="games">
 <table class="table table-bordered table-striped {{ count($games) > 0 ? 'datatable' : '' }}">
     <thead>

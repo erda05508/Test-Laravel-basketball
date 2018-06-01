@@ -5,6 +5,7 @@ Route::get('/games', 'GamesController@index');
 Route::get('/teams', 'TeamsController@index');
 Route::get('/players/{team_id}', 'TeamsController@players');
 Route::get('/table', 'TableController@index');
+Route::get('/coaches/{team_id}', 'TeamsController@coaches');
 
 // Authentication Routes...
 // $this->get('register', 'Auth\RegisterController@')->name('auth.register');
@@ -33,6 +34,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('teams_mass_destroy', ['uses' => 'Admin\TeamsController@massDestroy', 'as' => 'teams.mass_destroy']);
     Route::resource('players', 'Admin\PlayersController');
     Route::post('players_mass_destroy', ['uses' => 'Admin\PlayersController@massDestroy', 'as' => 'players.mass_destroy']);
+    Route::resource('coaches', 'Admin\CoachesController');
+    Route::post('coaches_mass_destroy', ['uses' => 'Admin\CoachesController@massDestroy', 'as' => 'coaches.mass_destroy']);
     Route::resource('games', 'Admin\GamesController');
     Route::post('games_mass_destroy', ['uses' => 'Admin\GamesController@massDestroy', 'as' => 'games.mass_destroy']);
 

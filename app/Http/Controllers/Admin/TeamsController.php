@@ -107,11 +107,14 @@ class TeamsController extends Controller
         if (! Gate::allows('team_view')) {
             return abort(401);
         }
-        $players = \App\Player::where('team_id', $id)->get();$games = \App\Game::where('team1_id', $id)->get();$games = \App\Game::where('team2_id', $id)->get();
+        $players = \App\Player::where('team_id', $id)->get();
+        $games = \App\Game::where('team1_id', $id)->get();
+        $games = \App\Game::where('team2_id', $id)->get();
+        $coaches = \App\Coach::where('team_id', $id)->get();
 
         $team = Team::findOrFail($id);
 
-        return view('admin.teams.show', compact('team', 'players', 'games', 'games'));
+        return view('admin.teams.show', compact('team', 'players', 'games', 'games', 'coaches'));
     }
 
 

@@ -28,6 +28,14 @@
                             <th>@lang('quickadmin.players.fields.birth-date')</th>
                             <td>{{ $player->birth_date }}</td>
                         </tr>
+                        <tr>
+                            <th>Рост</th>
+                            <td>{{ $player->tall }}</td>
+                        </tr>
+                        <tr>
+                            <th>Вес</th>
+                            <td>{{ $player->weight }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

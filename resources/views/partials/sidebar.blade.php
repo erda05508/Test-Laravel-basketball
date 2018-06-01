@@ -73,6 +73,15 @@
                 </a>
             </li>
             @endcan
+
+            @can('coach_access')
+            <li class="{{ $request->segment(2) == 'coaches' ? 'active' : '' }}">
+                <a href="{{ route('admin.coaches.index') }}">
+                    <i class="fa fa-user"></i>
+                    <span class="title">Тренерский состав</span>
+                </a>
+            </li>
+            @endcan
             
 
             

@@ -15,11 +15,16 @@ class Team extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'coach_id'];
 
     public function players()
     {
         return $this->hasMany(Player::class);
+    }
+
+    public function coaches()
+    {
+        return $this->hasMany(Coach::class);
     }
 
     public function getGamesAttribute()
