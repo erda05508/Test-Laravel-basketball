@@ -22,16 +22,6 @@
                         </p>
                     @endif
                 </div>
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('coach_id', 'Coach', ['class' => 'control-label']) !!}
-                    {!! Form::select('coach_id', $coaches, old('coach_id'), ['class' => 'form-control select2']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('coach_id'))
-                        <p class="help-block">
-                            {{ $errors->first('coach_id') }}
-                        </p>
-                    @endif
-                </div>
             </div>
             
         </div>

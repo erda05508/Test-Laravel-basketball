@@ -17,11 +17,9 @@ class Create1496402870PlayersTable extends Migration
                 $table->increments('id');
                 $table->integer('team_id')->unsigned()->nullable();
                 $table->foreign('team_id', '41907_59314bb611908')->references('id')->on('teams')->onDelete('cascade');
-                $table->string('name');
-                $table->string('surname');
-                $table->date('birth_date');
-                $table->string('tall');
-                $table->string('weight');
+                $table->string('name')->nullable();
+                $table->string('surname')->nullable();
+                $table->date('birth_date')->nullable();
                 
                 $table->timestamps();
                 $table->softDeletes();

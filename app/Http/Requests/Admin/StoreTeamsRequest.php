@@ -24,7 +24,6 @@ class StoreTeamsRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'coach_id' => 'required',
         ];
     }
 }

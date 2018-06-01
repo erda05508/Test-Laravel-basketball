@@ -10,13 +10,11 @@
                     <tr>
                         <th>Team</th>
                         <th>Players</th>
-                        <th>Тренер</th>
                     </tr>
                     @forelse($teams as $team)
                         <tr>
                             <td>{{ $team->name }}</td>
                             <td><a href="/players/{{ $team->id }}">{{ $team->players->count() }} игрока</a></td>
-                            <td><a href="/coaches/{{ $team->id }}">{{ $team->coaches->count() }} тренер</a></td>
                         </tr>
                     @empty
                         <tr>

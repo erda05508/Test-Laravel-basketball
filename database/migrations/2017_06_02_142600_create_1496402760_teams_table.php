@@ -16,9 +16,7 @@ class Create1496402760TeamsTable extends Migration
             Schema::create('teams', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
-                $table->integer('coach_id')->unsigned()->nullable();
-
-
+                
                 $table->timestamps();
                 $table->softDeletes();
 

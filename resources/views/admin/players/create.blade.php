@@ -58,30 +58,6 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('tall', 'Tall', ['class' => 'control-label']) !!}
-                    {!! Form::text('tall', old('tall'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('tall'))
-                        <p class="help-block">
-                            {{ $errors->first('tall') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('weight', 'Weight', ['class' => 'control-label']) !!}
-                    {!! Form::text('weight', old('weight'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('weight'))
-                        <p class="help-block">
-                            {{ $errors->first('weight') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
             
         </div>
     </div>

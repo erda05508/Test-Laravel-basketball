@@ -18,7 +18,7 @@ class Player extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'surname', 'birth_date', 'team_id', 'tall', 'weight'];
+    protected $fillable = ['name', 'surname', 'birth_date', 'team_id'];
     
 
     /**
