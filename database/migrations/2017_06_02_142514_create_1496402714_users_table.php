@@ -20,6 +20,7 @@ class Create1496402714UsersTable extends Migration
                 $table->string('password');
                 $table->integer('role_id')->unsigned()->nullable();
                 $table->foreign('role_id', '41905_59314b1a6c90f')->references('id')->on('roles')->onDelete('cascade');
+                $table->integer('team_id')->unsigned()->nullable();
                 $table->string('remember_token')->nullable();
                 
                 $table->timestamps();

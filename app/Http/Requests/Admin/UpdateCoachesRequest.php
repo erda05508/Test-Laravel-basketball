@@ -3,7 +3,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUsersRequest extends FormRequest
+class UpdateCoachesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,8 @@ class StoreUsersRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required',
-            'role_id' => 'required',
-            'team_id' => 'required',
+            
+            'birth_date' => 'date_format:'.config('app.date_format'),
         ];
     }
 }

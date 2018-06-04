@@ -26,7 +26,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         $user = \Auth::user();
-
+        
         
         // Auth gates for: User management
         Gate::define('user_management_access', function ($user) {
@@ -69,7 +69,7 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Teams
         Gate::define('team_access', function ($user) {
-            return in_array($user->role_id, [1, 2, 3]);
+            return in_array($user->role_id, [1, 2]);
         });
         Gate::define('team_create', function ($user) {
             return in_array($user->role_id, [1, 2]);
@@ -78,7 +78,7 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 2]);
         });
         Gate::define('team_view', function ($user) {
-            return in_array($user->role_id, [1, 2, 3]);
+            return in_array($user->role_id, [1, 2]);
         });
         Gate::define('team_delete', function ($user) {
             return in_array($user->role_id, [1, 2]);
@@ -86,19 +86,19 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Players
         Gate::define('player_access', function ($user) {
-            return in_array($user->role_id, [1, 2, 3, 4]);
+            return in_array($user->role_id, [1, 2]);
         });
         Gate::define('player_create', function ($user) {
-            return in_array($user->role_id, [1, 2, 3, 4]);
+            return in_array($user->role_id, [1, 2]);
         });
         Gate::define('player_edit', function ($user) {
-            return in_array($user->role_id, [1, 2, 3]);
+            return in_array($user->role_id, [1, 2]);
         });
         Gate::define('player_view', function ($user) {
-            return in_array($user->role_id, [1, 2, 3, 4]);
+            return in_array($user->role_id, [1, 2]);
         });
         Gate::define('player_delete', function ($user) {
-            return in_array($user->role_id, [1, 2, 3]);
+            return in_array($user->role_id, [1, 2]);
         });
 
         // Auth gates for: Games
@@ -115,6 +115,23 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 2]);
         });
         Gate::define('game_delete', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+
+        // Auth gates for: Players
+        Gate::define('coach_access', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('coach_create', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('coach_edit', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('coach_view', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('coach_delete', function ($user) {
             return in_array($user->role_id, [1, 2]);
         });
 

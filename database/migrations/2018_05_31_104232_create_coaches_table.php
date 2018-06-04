@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Create1496402760TeamsTable extends Migration
+class CreateCoachesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +13,15 @@ class Create1496402760TeamsTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('teams')) {
-            Schema::create('teams', function (Blueprint $table) {
+        //
+        if(! Schema::hasTable('coaches')) {
+            Schema::create('coaches', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('name');
-                     
-
+                $table->date('birth_date');
+                $table->string('country');
+                $table->integer('team_id');               
+                
                 $table->timestamps();
                 $table->softDeletes();
 
@@ -33,6 +37,6 @@ class Create1496402760TeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('coaches');
     }
 }

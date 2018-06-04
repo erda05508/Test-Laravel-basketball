@@ -324,9 +324,11 @@ class ComposerStaticInit04de44df6b63dd8494a5b07a1c409a8c
     );
 
     public static $classMap = array (
+        'App\\Coach' => __DIR__ . '/../..' . '/app/Coach.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Game' => __DIR__ . '/../..' . '/app/Game.php',
+        'App\\Http\\Controllers\\Admin\\CoachesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CoachesController.php',
         'App\\Http\\Controllers\\Admin\\GamesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/GamesController.php',
         'App\\Http\\Controllers\\Admin\\PlayersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PlayersController.php',
         'App\\Http\\Controllers\\Admin\\RolesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RolesController.php',
@@ -348,11 +350,13 @@ class ComposerStaticInit04de44df6b63dd8494a5b07a1c409a8c
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\Admin\\StoreCoachesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/StoreCoachesRequest.php',
         'App\\Http\\Requests\\Admin\\StoreGamesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/StoreGamesRequest.php',
         'App\\Http\\Requests\\Admin\\StorePlayersRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/StorePlayersRequest.php',
         'App\\Http\\Requests\\Admin\\StoreRolesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/StoreRolesRequest.php',
         'App\\Http\\Requests\\Admin\\StoreTeamsRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/StoreTeamsRequest.php',
         'App\\Http\\Requests\\Admin\\StoreUsersRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/StoreUsersRequest.php',
+        'App\\Http\\Requests\\Admin\\UpdateCoachesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateCoachesRequest.php',
         'App\\Http\\Requests\\Admin\\UpdateGamesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateGamesRequest.php',
         'App\\Http\\Requests\\Admin\\UpdatePlayersRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdatePlayersRequest.php',
         'App\\Http\\Requests\\Admin\\UpdateRolesRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Admin/UpdateRolesRequest.php',
@@ -382,6 +386,7 @@ class ComposerStaticInit04de44df6b63dd8494a5b07a1c409a8c
         'Create1496402760TeamsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_02_142600_create_1496402760_teams_table.php',
         'Create1496402870PlayersTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_02_142750_create_1496402870_players_table.php',
         'Create1496402975GamesTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_02_142935_create_1496402975_games_table.php',
+        'CreateCoachesTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_31_104232_create_coaches_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

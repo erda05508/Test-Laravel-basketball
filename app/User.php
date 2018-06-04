@@ -14,11 +14,12 @@ use Hash;
  * @property string $password
  * @property string $role
  * @property string $remember_token
+ * @property string $team
 */
 class User extends Authenticatable
 {
     use Notifiable;
-    protected $fillable = ['name', 'email', 'password', 'remember_token', 'role_id'];
+    protected $fillable = ['name', 'email', 'password', 'remember_token', 'role_id', 'team_id'];
     
     
     /**
@@ -46,6 +47,10 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id');
     }
     
+    public function team()
+    {
+        return $this->belongsTo(Team::class, 'team_id');
+    }
     
     
 }

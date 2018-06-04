@@ -26,6 +26,8 @@
                         <th>@lang('quickadmin.players.fields.name')</th>
                         <th>@lang('quickadmin.players.fields.surname')</th>
                         <th>@lang('quickadmin.players.fields.birth-date')</th>
+                        <th>Рост</th>
+                        <th>Вес</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -42,6 +44,8 @@
                                 <td>{{ $player->name }}</td>
                                 <td>{{ $player->surname }}</td>
                                 <td>{{ $player->birth_date }}</td>
+                                <td>{{ $player->tall }}</td>
+                                <td>{{ $player->weight }}</td>
                                 <td>
                                     @can('player_view')
                                     <a href="{{ route('admin.players.show',[$player->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>

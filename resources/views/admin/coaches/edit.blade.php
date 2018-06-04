@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.players.title')</h3>
+    <h3 class="page-title">Тренерский состав</h3>
     
-    {!! Form::model($player, ['method' => 'PUT', 'route' => ['admin.players.update', $player->id]]) !!}
+    {!! Form::model($coach, ['method' => 'PUT', 'route' => ['admin.coaches.update', $coach->id]]) !!}
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -37,12 +37,12 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('surname', 'Surname', ['class' => 'control-label']) !!}
-                    {!! Form::text('surname', old('surname'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                    {!! Form::label('country', 'Country', ['class' => 'control-label']) !!}
+                    {!! Form::text('country', old('country'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
-                    @if($errors->has('surname'))
+                    @if($errors->has('country'))
                         <p class="help-block">
-                            {{ $errors->first('surname') }}
+                            {{ $errors->first('country') }}
                         </p>
                     @endif
                 </div>
@@ -55,30 +55,6 @@
                     @if($errors->has('birth_date'))
                         <p class="help-block">
                             {{ $errors->first('birth_date') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('tall', 'Tall', ['class' => 'control-label']) !!}
-                    {!! Form::text('tall', old('tall'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('tall'))
-                        <p class="help-block">
-                            {{ $errors->first('tall') }}
-                        </p>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
-                    {!! Form::label('weight', 'Weight', ['class' => 'control-label']) !!}
-                    {!! Form::text('weight', old('weight'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                    <p class="help-block"></p>
-                    @if($errors->has('weight'))
-                        <p class="help-block">
-                            {{ $errors->first('weight') }}
                         </p>
                     @endif
                 </div>

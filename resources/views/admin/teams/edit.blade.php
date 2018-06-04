@@ -21,9 +21,9 @@
                             {{ $errors->first('name') }}
                         </p>
                     @endif
-                </div>
+                </div>    
+                
             </div>
-            
         </div>
     </div>
 

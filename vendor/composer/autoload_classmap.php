@@ -6,9 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Coach' => $baseDir . '/app/Coach.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Game' => $baseDir . '/app/Game.php',
+    'App\\Http\\Controllers\\Admin\\CoachesController' => $baseDir . '/app/Http/Controllers/Admin/CoachesController.php',
     'App\\Http\\Controllers\\Admin\\GamesController' => $baseDir . '/app/Http/Controllers/Admin/GamesController.php',
     'App\\Http\\Controllers\\Admin\\PlayersController' => $baseDir . '/app/Http/Controllers/Admin/PlayersController.php',
     'App\\Http\\Controllers\\Admin\\RolesController' => $baseDir . '/app/Http/Controllers/Admin/RolesController.php',
@@ -30,11 +32,13 @@ return array(
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\Admin\\StoreCoachesRequest' => $baseDir . '/app/Http/Requests/Admin/StoreCoachesRequest.php',
     'App\\Http\\Requests\\Admin\\StoreGamesRequest' => $baseDir . '/app/Http/Requests/Admin/StoreGamesRequest.php',
     'App\\Http\\Requests\\Admin\\StorePlayersRequest' => $baseDir . '/app/Http/Requests/Admin/StorePlayersRequest.php',
     'App\\Http\\Requests\\Admin\\StoreRolesRequest' => $baseDir . '/app/Http/Requests/Admin/StoreRolesRequest.php',
     'App\\Http\\Requests\\Admin\\StoreTeamsRequest' => $baseDir . '/app/Http/Requests/Admin/StoreTeamsRequest.php',
     'App\\Http\\Requests\\Admin\\StoreUsersRequest' => $baseDir . '/app/Http/Requests/Admin/StoreUsersRequest.php',
+    'App\\Http\\Requests\\Admin\\UpdateCoachesRequest' => $baseDir . '/app/Http/Requests/Admin/UpdateCoachesRequest.php',
     'App\\Http\\Requests\\Admin\\UpdateGamesRequest' => $baseDir . '/app/Http/Requests/Admin/UpdateGamesRequest.php',
     'App\\Http\\Requests\\Admin\\UpdatePlayersRequest' => $baseDir . '/app/Http/Requests/Admin/UpdatePlayersRequest.php',
     'App\\Http\\Requests\\Admin\\UpdateRolesRequest' => $baseDir . '/app/Http/Requests/Admin/UpdateRolesRequest.php',
@@ -64,6 +68,7 @@ return array(
     'Create1496402760TeamsTable' => $baseDir . '/database/migrations/2017_06_02_142600_create_1496402760_teams_table.php',
     'Create1496402870PlayersTable' => $baseDir . '/database/migrations/2017_06_02_142750_create_1496402870_players_table.php',
     'Create1496402975GamesTable' => $baseDir . '/database/migrations/2017_06_02_142935_create_1496402975_games_table.php',
+    'CreateCoachesTable' => $baseDir . '/database/migrations/2018_05_31_104232_create_coaches_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

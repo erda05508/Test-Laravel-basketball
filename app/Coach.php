@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Player
+ * Class Coach
  *
  * @package App
  * @property string $team
@@ -14,11 +14,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $surname
  * @property string $birth_date
 */
-class Player extends Model
+class Coach extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name', 'surname', 'birth_date', 'team_id', 'tall', 'weight'];
+    protected $fillable = ['name', 'birth_date', 'country', 'team_id'];
     
 
     /**

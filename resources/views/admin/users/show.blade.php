@@ -24,6 +24,10 @@
                             <th>@lang('quickadmin.users.fields.role')</th>
                             <td>{{ $user->role->title or '' }}</td>
                         </tr>
+                        <tr>
+                            <th>Team</th>
+                            <td>{{ $user->team->name or '' }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

@@ -59,6 +59,18 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('team_id', 'Team*', ['class' => 'control-label']) !!}
+                    {!! Form::select('team_id', $teams, old('team_id'), ['class' => 'form-control select2', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('team_id'))
+                        <p class="help-block">
+                            {{ $errors->first('team_id') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
             
         </div>
     </div>

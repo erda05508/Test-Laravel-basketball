@@ -38,8 +38,9 @@ class UsersController extends Controller
             return abort(401);
         }
         $roles = \App\Role::get()->pluck('title', 'id')->prepend('Please select', '');
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
-        return view('admin.users.create', compact('roles'));
+        return view('admin.users.create', compact('roles', 'teams'));
     }
 
     /**
@@ -73,10 +74,11 @@ class UsersController extends Controller
             return abort(401);
         }
         $roles = \App\Role::get()->pluck('title', 'id')->prepend('Please select', '');
+        $teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         $user = User::findOrFail($id);
 
-        return view('admin.users.edit', compact('user', 'roles'));
+        return view('admin.users.edit', compact('user', 'roles', 'teams'));
     }
 
     /**

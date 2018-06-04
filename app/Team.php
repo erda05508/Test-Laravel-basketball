@@ -22,6 +22,11 @@ class Team extends Model
         return $this->hasMany(Player::class);
     }
 
+    public function coaches()
+    {
+        return $this->hasMany(Coach::class);
+    }
+
     public function getGamesAttribute()
     {
         return Game::where(function($query) {
