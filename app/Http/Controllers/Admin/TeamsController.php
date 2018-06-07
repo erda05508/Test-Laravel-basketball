@@ -37,6 +37,7 @@ class TeamsController extends Controller
         if (! Gate::allows('team_create')) {
             return abort(401);
         }
+
         return view('admin.teams.create');
     }
 
@@ -111,10 +112,11 @@ class TeamsController extends Controller
         $games = \App\Game::where('team1_id', $id)->get();
         $games = \App\Game::where('team2_id', $id)->get();
         $coaches = \App\Coach::where('team_id', $id)->get();
+        $tournaments = \App\Tournament::where('team_id', $id)->get();
 
         $team = Team::findOrFail($id);
 
-        return view('admin.teams.show', compact('team', 'players', 'games', 'games', 'coaches'));
+        return view('admin.teams.show', compact('team', 'players', 'games', 'games', 'coaches', 'tournaments'));
     }
 
 

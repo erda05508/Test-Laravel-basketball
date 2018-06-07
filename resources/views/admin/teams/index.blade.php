@@ -23,6 +23,7 @@
                         @endcan
 
                         <th>@lang('quickadmin.teams.fields.name')</th>
+                        <th>Turnir</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
@@ -36,6 +37,7 @@
                                 @endcan
 
                                 <td>{{ $team->name }}</td>
+                                <td>{{ $team->tournaments()->pluck('title')->implode(', ') }}</td>
                                 <td>
                                     @can('team_view')
                                     <a href="{{ route('admin.teams.show',[$team->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>

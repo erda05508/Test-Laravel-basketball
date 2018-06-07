@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('coaches_mass_destroy', ['uses' => 'Admin\CoachesController@massDestroy', 'as' => 'coaches.mass_destroy']);
     Route::resource('games', 'Admin\GamesController');
     Route::post('games_mass_destroy', ['uses' => 'Admin\GamesController@massDestroy', 'as' => 'games.mass_destroy']);
+    Route::resource('tournaments', 'Admin\TournamentsController');
+    Route::post('tournaments_mass_destroy', ['uses' => 'Admin\TournamentsController@massDestroy', 'as' => 'tournaments.mass_destroy']);
 
 });
 

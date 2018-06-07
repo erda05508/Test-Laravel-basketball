@@ -135,5 +135,22 @@ class AuthServiceProvider extends ServiceProvider
             return in_array($user->role_id, [1, 2]);
         });
 
+        // Auth gates for: Teams
+        Gate::define('tournament_access', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('tournament_create', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('tournament_edit', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('tournament_view', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+        Gate::define('tournament_delete', function ($user) {
+            return in_array($user->role_id, [1, 2]);
+        });
+
     }
 }

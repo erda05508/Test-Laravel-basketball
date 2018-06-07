@@ -82,6 +82,15 @@
                 </a>
             </li>
             @endcan
+
+            @can('tournament_access')
+            <li class="{{ $request->segment(2) == 'tournaments' ? 'active' : '' }}">
+                <a href="{{ route('admin.tournaments.index') }}">
+                    <i class="fa fa-user"></i>
+                    <span class="title">Турниры</span>
+                </a>
+            </li>
+            @endcan
             
 
             

@@ -27,6 +27,11 @@ class Team extends Model
         return $this->hasMany(Coach::class);
     }
 
+    public function tournaments()
+    {
+        return $this->belongsToMany('App\Tournament', 'team_tournament', 'team_id', 'tournament_id');
+    }
+
     public function getGamesAttribute()
     {
         return Game::where(function($query) {

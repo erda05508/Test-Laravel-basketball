@@ -37,7 +37,8 @@ class GamesController extends Controller
         if (! Gate::allows('game_create')) {
             return abort(401);
         }
-        $team1s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');$team2s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
+        $team1s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
+        $team2s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         return view('admin.games.create', compact('team1s', 'team2s'));
     }
@@ -72,7 +73,8 @@ class GamesController extends Controller
         if (! Gate::allows('game_edit')) {
             return abort(401);
         }
-        $team1s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');$team2s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
+        $team1s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
+        $team2s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
 
         $game = Game::findOrFail($id);
 
