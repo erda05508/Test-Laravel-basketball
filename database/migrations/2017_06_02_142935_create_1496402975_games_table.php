@@ -15,6 +15,7 @@ class Create1496402975GamesTable extends Migration
         if(! Schema::hasTable('games')) {
             Schema::create('games', function (Blueprint $table) {
                 $table->increments('id');
+                $table->integer('tournament_id')->unsigned()->nullable();
                 $table->integer('team1_id')->unsigned()->nullable();
                 $table->foreign('team1_id', '41908_59314c1f52463')->references('id')->on('teams')->onDelete('cascade');
                 $table->integer('team2_id')->unsigned()->nullable();
