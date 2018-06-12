@@ -46,7 +46,7 @@ class UsersController extends Controller
     /**
      * Store a newly created User in storage.
      *
-     * @param  \App\Http\Requests\StoreUsersRequest  $request
+     * @param StoreUsersRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreUsersRequest $request)
@@ -84,8 +84,8 @@ class UsersController extends Controller
     /**
      * Update User in storage.
      *
-     * @param  \App\Http\Requests\UpdateUsersRequest  $request
-     * @param  int  $id
+     * @param UpdateUsersRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateUsersRequest $request, $id)

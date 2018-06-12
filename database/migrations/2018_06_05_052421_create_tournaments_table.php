@@ -19,8 +19,7 @@ class CreateTournamentsTable extends Migration
                 $table->string('title');
                 $table->integer('season');
                 $table->integer('number_of_teams');
-                $table->integer('team_id');
-                                    
+                
 
                 $table->timestamps();
                 $table->softDeletes();

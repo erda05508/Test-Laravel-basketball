@@ -48,14 +48,16 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('team_id', 'Team', ['class' => 'control-label']) !!}
-                    {!! Form::select('team_id', $teams, old('team_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::label('teams[]', 'Team', ['class' => 'control-label']) !!}
+                    {!! Form::select('teams[]', $teams, null, ['class' => 'form-control js-example-basic-multiple', 'multiple' => true]) !!}
+
                     <p class="help-block"></p>
                     @if($errors->has('team_id'))
                         <p class="help-block">
                             {{ $errors->first('team_id') }}
                         </p>
                     @endif
+
                 </div>
             </div>            
         </div>
@@ -63,4 +65,14 @@
 
     {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
+@stop
+
+@section('javascript')
+@parent
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+
 @stop

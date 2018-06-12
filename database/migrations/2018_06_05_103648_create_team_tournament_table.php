@@ -13,7 +13,6 @@ class CreateTeamTournamentTable extends Migration
      */
     public function up()
     {
-        if(! Schema::hasTable('team_tournament')) {
             Schema::create('team_tournament', function (Blueprint $table) {
                 $table->increments('id');
                 $table->integer('team_id')->unsigned();
@@ -21,11 +20,11 @@ class CreateTeamTournamentTable extends Migration
 
                 $table->integer('tournament_id')->unsigned();
                 $table->foreign('tournament_id')->references('id')->on('tournaments');
+                $table->boolean('approved');
                 
                 $table->timestamps();
                 
             });
-        }
     }
 
     /**

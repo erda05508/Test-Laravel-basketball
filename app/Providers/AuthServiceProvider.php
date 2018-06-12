@@ -69,84 +69,84 @@ class AuthServiceProvider extends ServiceProvider
 
         // Auth gates for: Teams
         Gate::define('team_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('team_create', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('team_edit', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('team_view', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('team_delete', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
 
         // Auth gates for: Players
         Gate::define('player_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('player_create', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('player_edit', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('player_view', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
         Gate::define('player_delete', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 3]);
         });
 
         // Auth gates for: Games
         Gate::define('game_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('game_create', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('game_edit', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('game_view', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('game_delete', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
 
         // Auth gates for: Players
         Gate::define('coach_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('coach_create', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('coach_edit', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('coach_view', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('coach_delete', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
 
         // Auth gates for: Teams
         Gate::define('tournament_access', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('tournament_create', function ($user) {
             return in_array($user->role_id, [1, 2]);
         });
         Gate::define('tournament_edit', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('tournament_view', function ($user) {
-            return in_array($user->role_id, [1, 2]);
+            return in_array($user->role_id, [1, 2, 3]);
         });
         Gate::define('tournament_delete', function ($user) {
             return in_array($user->role_id, [1, 2]);

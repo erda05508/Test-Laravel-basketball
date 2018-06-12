@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Team;
 use App\Tournament;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -37,14 +38,15 @@ class TournamentsController extends Controller
         if (! Gate::allows('tournament_create')) {
             return abort(401);
         }
+
         $teams = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
-        return view('admin.tournaments.create', compact('teams'));
+        return view('admin.tournaments.create', compact( 'teams'));
     }
 
     /**
      * Store a newly created Tournament in storage.
      *
-     * @param  \App\Http\Requests\StoreTournamentsRequest  $request
+     * @param StoreTournamentsRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTournamentsRequest $request)
@@ -53,13 +55,9 @@ class TournamentsController extends Controller
             return abort(401);
         }
         $tournament = Tournament::create($request->all());
+        $tournament->teams()->attach($request->get('teams'));
 
-        if($request->input('teams')):
-            $team->tournaments()->attach($request->input('teams'));
-        endif;
-
-
-        return redirect()->route('admin.tournaments.index');
+        return redirect()->route('admin.tournaments.index', compact('tournament', 'teams'));
     }
 
 
@@ -84,8 +82,8 @@ class TournamentsController extends Controller
     /**
      * Update Tournament in storage.
      *
-     * @param  \App\Http\Requests\UpdateTournamentsRequest  $request
-     * @param  int  $id
+     * @param UpdateTournamentsRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateTournamentsRequest $request, $id)

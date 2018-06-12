@@ -13,9 +13,9 @@ class TeamSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'name' => 'Golden State Warriors',],
-            ['id' => 2, 'name' => 'Cleveland Cavaliers',],
-            ['id' => 3, 'name' => 'Los Angeles Lakers',],
+            ['id' => 1, 'name' => 'Astana',],
+            ['id' => 2, 'name' => 'Almaty',],
+            ['id' => 3, 'name' => 'Shymkent',],
 
         ];
 

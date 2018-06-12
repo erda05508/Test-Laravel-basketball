@@ -39,14 +39,15 @@ class GamesController extends Controller
         }
         $team1s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
         $team2s = \App\Team::get()->pluck('name', 'id')->prepend('Please select', '');
+        $tournament = \App\Tournament::get()->pluck('title')->prepend('Please select', '');
 
-        return view('admin.games.create', compact('team1s', 'team2s'));
+        return view('admin.games.create', compact('team1s', 'team2s', 'tournament'));
     }
 
     /**
      * Store a newly created Game in storage.
      *
-     * @param  \App\Http\Requests\StoreGamesRequest  $request
+     * @param StoreGamesRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreGamesRequest $request)

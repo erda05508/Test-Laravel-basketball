@@ -13,8 +13,8 @@ class PlayerSeed extends Seeder
     {
         $items = [
             
-            ['id' => 1, 'team_id' => 1, 'name' => 'Kevin', 'surname' => 'Durant', 'birth_date' => '',],
-            ['id' => 2, 'team_id' => 1, 'name' => 'Stephen', 'surname' => 'Curry', 'birth_date' => '',],
+            ['id' => 1, 'team_id' => 1, 'name' => 'Yerdaulet', 'surname' => 'T', 'birth_date' => '', 'tall' => '185', 'weight' => '85',],
+            ['id' => 2, 'team_id' => 1, 'name' => 'Nikita', 'surname' => 'N', 'birth_date' => '', 'tall' => '185', 'weight' => '85',],
 
         ];
 

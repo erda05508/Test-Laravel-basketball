@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tournament;
+use App\Team;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+//        $team = tournament::find(2)->teams;
+//        $tournament = team::find(3)->tournaments;
+//        return $tournament;
         return view('home');
     }
+
+
 }

@@ -29,11 +29,4 @@ class TeamsController extends Controller
         $coaches = Coach::where('team_id', $team_id)->get();
         return view('front.coaches', compact('coaches', 'team'));
     }
-
-    public function tournaments($team_id)
-    {
-        $team = Team::find($team_id);
-        $tournaments = Tournament::where('team_id', $team_id)->get();
-        return view('front.tournaments', compact('tournaments', 'team'));
-    }
 }

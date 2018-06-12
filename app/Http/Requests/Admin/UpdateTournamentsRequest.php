@@ -27,7 +27,6 @@ class UpdateTournamentsRequest extends FormRequest
             'title' => 'required',
             'season' => 'required',
             'number_of_teams' => 'required',
-            'team_id' => 'required',
         ];
     }
 }

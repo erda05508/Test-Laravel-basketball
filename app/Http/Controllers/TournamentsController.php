@@ -14,5 +14,4 @@ class TournamentsController extends Controller
         $tournaments = Tournament::all();
         return view('front.tournaments', compact('tournaments'));
     }
-
 }

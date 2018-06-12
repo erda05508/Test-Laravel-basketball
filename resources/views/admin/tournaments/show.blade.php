@@ -23,7 +23,11 @@
                         <tr>
                             <th>Число команд</th>
                             <td>{{ $tournament->number_of_teams }}</td>
-                        </tr>                        
+                        </tr>
+                        <tr>
+                            <th>Kоманд</th>
+                            <td>{{ $tournament->teams()->pluck('name')->implode(', ') }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

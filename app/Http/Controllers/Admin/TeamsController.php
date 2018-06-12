@@ -44,7 +44,7 @@ class TeamsController extends Controller
     /**
      * Store a newly created Team in storage.
      *
-     * @param  \App\Http\Requests\StoreTeamsRequest  $request
+     * @param StoreTeamsRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTeamsRequest $request)

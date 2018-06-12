@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="page-title">@lang('quickadmin.seasones.title')</h3>
+    <h3 class="page-title">Edit</h3>
     {!! Form::model($tournament, ['method' => 'PUT', 'route' => ['admin.tournaments.update', $tournament->id]]) !!}
 
     <div class="panel panel-default">
@@ -48,8 +48,8 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 form-group">
-                    {!! Form::label('team_id', 'Team', ['class' => 'control-label']) !!}
-                    {!! Form::select('team_id', $teams, old('team_id'), ['class' => 'form-control select2']) !!}
+                    {!! Form::label('teams[]', 'Team', ['class' => 'control-label']) !!}
+                    {!! Form::select('teams[]', $teams, old('teams[]'), ['class' => 'form-control js-example-basic-multiple', 'multiple' => true]) !!}
                     <p class="help-block"></p>
                     @if($errors->has('team_id'))
                         <p class="help-block">

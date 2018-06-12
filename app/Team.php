@@ -29,7 +29,7 @@ class Team extends Model
 
     public function tournaments()
     {
-        return $this->belongsToMany('App\Tournament', 'team_tournament', 'team_id', 'tournament_id');
+        return $this->belongsToMany(Tournament::class);
     }
 
     public function getGamesAttribute()
@@ -80,7 +80,7 @@ class Team extends Model
 
     public function getPointsAttribute()
     {
-        return $this->getWonAttribute() * 3 + $this->getTiedAttribute() * 1;
+        return $this->getWonAttribute() * 2 + $this->getTiedAttribute() * 1;
     }
 
 }

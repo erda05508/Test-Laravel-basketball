@@ -11,11 +11,21 @@ use Illuminate\Database\Eloquent\Model;
 */
 class Tournament extends Model
 {
-    protected $fillable = ['title', 'season', 'number_of_teams', 'team_id'];
-    
+    protected $fillable = ['title', 'season', 'number_of_teams', 'teams_list'];
+    private $id;
+
+    /**
+     * Set to null if empty
+     * @param $input
+     */
+    public function setTeamsAttribute($input)
+    {
+        $this->attributes['teams'] = $input ? $input : null;
+    }
+
     public function teams()
     {
-        return $this->belongsToMany('App\Team', 'team_tournament', 'tournament_id', 'team_id');
+        return $this->belongsToMany(Team::class);
     }
     
 }

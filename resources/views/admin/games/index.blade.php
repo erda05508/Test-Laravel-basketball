@@ -22,6 +22,7 @@
                             <th style="text-align:center;"><input type="checkbox" id="select-all" /></th>
                         @endcan
 
+                        <th>Турнир</th>
                         <th>@lang('quickadmin.games.fields.team1')</th>
                         <th>@lang('quickadmin.games.fields.team2')</th>
                         <th>@lang('quickadmin.games.fields.start-time')</th>
@@ -39,6 +40,7 @@
                                     <td></td>
                                 @endcan
 
+                                <td>{{ $game->tournament }}</td>
                                 <td>{{ $game->team1->name or '' }}</td>
                                 <td>{{ $game->team2->name or '' }}</td>
                                 <td>{{ $game->start_time }}</td>
