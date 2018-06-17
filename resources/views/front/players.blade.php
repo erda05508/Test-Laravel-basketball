@@ -13,7 +13,7 @@
                     </tr>
                     @forelse($players as $player)
                         <tr>
-                            <td>{{ $player->name . ' ' . $player->surname }}</td>
+                            <td><a href="/players/profile/{{ $player->id }}">{{ $player->name . ' ' . $player->surname }}</a></td>
                             <td>{{ $player->birth_date }}</td>
                         </tr>
                     @empty

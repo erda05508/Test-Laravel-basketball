@@ -11,7 +11,7 @@
         
         <div class="panel-body">
             <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-6 form-group">
                     {!! Form::label('title', 'Title', ['class' => 'control-label']) !!}
                     {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -21,9 +21,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-6 form-group">
                     {!! Form::label('season', 'Season', ['class' => 'control-label']) !!}
                     {!! Form::text('season', old('season'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -33,9 +31,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-6 form-group">
                     {!! Form::label('number_of_teams', 'Number_of_teams', ['class' => 'control-label']) !!}
                     {!! Form::text('number_of_teams', old('number_of_teams'), ['class' => 'form-control', 'placeholder' => '']) !!}
                     <p class="help-block"></p>
@@ -45,9 +41,7 @@
                         </p>
                     @endif
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 form-group">
+                <div class="col-xs-6 form-group">
                     {!! Form::label('teams[]', 'Team', ['class' => 'control-label']) !!}
                     {!! Form::select('teams[]', $teams, null, ['class' => 'form-control js-example-basic-multiple', 'multiple' => true]) !!}
 

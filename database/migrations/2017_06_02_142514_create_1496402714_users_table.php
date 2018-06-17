@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
 class Create1496402714UsersTable extends Migration
 {
@@ -17,6 +18,7 @@ class Create1496402714UsersTable extends Migration
                 $table->increments('id');
                 $table->string('name');
                 $table->string('email');
+                $table->string('avatar')->default('default.jpg');
                 $table->string('password');
                 $table->integer('role_id')->unsigned()->nullable();
                 $table->foreign('role_id', '41905_59314b1a6c90f')->references('id')->on('roles')->onDelete('cascade');

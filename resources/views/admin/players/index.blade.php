@@ -47,6 +47,10 @@
                                 <td>{{ $player->tall }}</td>
                                 <td>{{ $player->weight }}</td>
                                 <td>
+                                    <img src="/uploads/avatars/{{ $player->avatar }}" style="width:25px; height:25px; float:left; border-radius: 50%; margin-right: 25px;">
+                                </td>
+                                <td><p>Аватарка</p></td>
+                                <td>
                                     @can('player_view')
                                     <a href="{{ route('admin.players.show',[$player->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>
                                     @endcan

@@ -81,10 +81,17 @@
                         </p>
                     @endif
                 </div>
+                <form enctype="multipart/form-data" action="/admin/players" method="POST">
+                    <input type="file" name="avatar" class="btn btn-xs">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <form><input type="submit" class="btn btn-danger"></form>
+                </form>
             </div>
+
             
         </div>
     </div>
+
 
     {!! Form::submit(trans('quickadmin.qa_save'), ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}

@@ -14,12 +14,27 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $start_time
  * @property integer $result1
  * @property integer $result2
+ * @property integer $tournament_id
+ * @property string $g2point1
+ * @property string $g2point2
+ * @property integer $g3point1
+ * @property integer $g3point2
+ * @property string $fine1
+ * @property string $fine2
+ * @property integer $transfers1
+ * @property integer $transfers2
+ * @property integer $rebounds1
+ * @property integer $rebounds2
+ * @property integer $interceptions1
+ * @property integer $interceptions2
+ * @property integer $fouls1
+ * @property integer $fouls2
 */
 class Game extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['start_time', 'result1', 'result2', 'team1_id', 'team2_id'];
+    protected $fillable = ['start_time', 'tournament_id', 'result1', 'result2', 'team1_id', 'team2_id', 'g2point1', 'g2point2', 'g3point1', 'g3point2', 'fine1', 'fine2', 'transfers1', 'transfers2', 'rebounds1', 'rebounds2', 'interceptions1', 'interceptions2', 'fouls1', 'fouls2'];
     
 
     /**
@@ -87,7 +102,147 @@ class Game extends Model
     {
         $this->attributes['result2'] = $input ? $input : null;
     }
-    
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setG2point1Attribute($input)
+    {
+        $this->attributes['g2point1'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setG2point2Attribute($input)
+    {
+        $this->attributes['g2point2'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setG3point1Attribute($input)
+    {
+        $this->attributes['g3point1'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setG3point2Attribute($input)
+    {
+        $this->attributes['g3point2'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setFine1Attribute($input)
+    {
+        $this->attributes['fine1'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setFine2Attribute($input)
+    {
+        $this->attributes['fine2'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setTransfers1Attribute($input)
+    {
+        $this->attributes['transfers1'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setTransfers2Attribute($input)
+    {
+        $this->attributes['transfers2'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setRebounds1Attribute($input)
+    {
+        $this->attributes['rebounds1'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setRebounds2Attribute($input)
+    {
+        $this->attributes['rebounds2'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setInterceptions1Attribute($input)
+    {
+        $this->attributes['interceptions1'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setInterceptions2Attribute($input)
+    {
+        $this->attributes['interceptions2'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setFouls1Attribute($input)
+    {
+        $this->attributes['fouls1'] = $input ? $input : null;
+    }
+
+    /**
+     * Set attribute to money format
+     * @param $input
+     */
+
+    public function setFouls2Attribute($input)
+    {
+        $this->attributes['fouls2'] = $input ? $input : null;
+    }
+
     public function team1()
     {
         return $this->belongsTo(Team::class, 'team1_id')->withTrashed();

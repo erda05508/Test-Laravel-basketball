@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Game;
 use App\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreTeamsRequest;
@@ -23,8 +25,9 @@ class TeamsController extends Controller
         }
 
         $teams = Team::all();
+        $game = Game::all();
 
-        return view('admin.teams.index', compact('teams'));
+        return view('admin.teams.index', compact('teams', 'game'));
     }
 
     /**
@@ -79,8 +82,8 @@ class TeamsController extends Controller
     /**
      * Update Team in storage.
      *
-     * @param  \App\Http\Requests\UpdateTeamsRequest  $request
-     * @param  int  $id
+     * @param UpdateTeamsRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateTeamsRequest $request, $id)
@@ -113,7 +116,6 @@ class TeamsController extends Controller
         $games = \App\Game::where('team2_id', $id)->get();
         $coaches = \App\Coach::where('team_id', $id)->get();
         $tournaments = \App\Tournament::where('team_id', $id)->get();
-
         $team = Team::findOrFail($id);
 
         return view('admin.teams.show', compact('team', 'players', 'games', 'games', 'coaches', 'tournaments'));

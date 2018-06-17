@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreGamesRequest;
@@ -85,8 +86,8 @@ class GamesController extends Controller
     /**
      * Update Game in storage.
      *
-     * @param  \App\Http\Requests\UpdateGamesRequest  $request
-     * @param  int  $id
+     * @param UpdateGamesRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateGamesRequest $request, $id)
@@ -115,8 +116,22 @@ class GamesController extends Controller
             return abort(401);
         }
         $game = Game::findOrFail($id);
+        $g2point1 = DB::table('games')
+            ->where('team1_id', $id)
+            ->get();
+        $g2point2 = DB::table('games')
+            ->where('team2_id', $id)
+            ->get();
+        $g2point = 0;
+        foreach ($g2point1 as $game){
+            $g2point += $game->g2point1;
+        }
+        foreach ($g2point2 as $game){
+            $g2point += $game->g2point2;
+        }
+        dd($g2point);
 
-        return view('admin.games.show', compact('game'));
+        return view('admin.games.show', compact('game', 'g2point', 'g2point1', 'g2point2'));
     }
 
 

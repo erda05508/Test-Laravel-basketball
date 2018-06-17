@@ -1,10 +1,15 @@
 <?php
-Route::get('/', function () { return redirect('/games'); });
+Route::get('/', function () { return redirect('/table'); });
 Route::get('/admin', function () { return redirect('/admin/home'); });
 Route::get('/games', 'GamesController@index');
 Route::get('/teams', 'TeamsController@index');
-Route::get('/players/{team_id}', 'TeamsController@players');
 Route::get('/table', 'TableController@index');
+//Route::get('/players', 'PlayersController@index');
+Route::get('/players/profile/{players}', 'ProfileController@show');
+Route::post('players/profile/{players}', 'ProfileController@update_player_avatar');
+Route::get('/players/{team_id}', 'TeamsController@players');
+Route::get('/profile', 'ProfileController@uprofile');
+Route::post('profile', 'ProfileController@update_avatar');
 Route::get('/coaches/{team_id}', 'TeamsController@coaches');
 
 // Authentication Routes...
@@ -34,6 +39,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('teams_mass_destroy', ['uses' => 'Admin\TeamsController@massDestroy', 'as' => 'teams.mass_destroy']);
     Route::resource('players', 'Admin\PlayersController');
     Route::post('players_mass_destroy', ['uses' => 'Admin\PlayersController@massDestroy', 'as' => 'players.mass_destroy']);
+    Route::resource('players', 'Admin\PlayersController');
+    Route::post('players_update_avatar', ['uses' => 'Admin\PlayersController@update_avatar', 'as' => 'players.update_avatar']);
     Route::resource('coaches', 'Admin\CoachesController');
     Route::post('coaches_mass_destroy', ['uses' => 'Admin\CoachesController@massDestroy', 'as' => 'coaches.mass_destroy']);
     Route::resource('games', 'Admin\GamesController');

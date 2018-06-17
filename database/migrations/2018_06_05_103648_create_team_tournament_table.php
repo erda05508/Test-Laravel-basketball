@@ -20,7 +20,7 @@ class CreateTeamTournamentTable extends Migration
 
                 $table->integer('tournament_id')->unsigned();
                 $table->foreign('tournament_id')->references('id')->on('tournaments');
-                $table->boolean('approved');
+                $table->boolean('approved')->default(0);
                 
                 $table->timestamps();
                 

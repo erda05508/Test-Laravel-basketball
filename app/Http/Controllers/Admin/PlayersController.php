@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Player;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePlayersRequest;
 use App\Http\Requests\Admin\UpdatePlayersRequest;
+use Intervention\Image\Facades\Image;
 
 class PlayersController extends Controller
 {
@@ -45,7 +47,7 @@ class PlayersController extends Controller
     /**
      * Store a newly created Player in storage.
      *
-     * @param  \App\Http\Requests\StorePlayersRequest  $request
+     * @param StorePlayersRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StorePlayersRequest $request)
@@ -82,8 +84,8 @@ class PlayersController extends Controller
     /**
      * Update Player in storage.
      *
-     * @param  \App\Http\Requests\UpdatePlayersRequest  $request
-     * @param  int  $id
+     * @param UpdatePlayersRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePlayersRequest $request, $id)
@@ -93,7 +95,6 @@ class PlayersController extends Controller
         }
         $player = Player::findOrFail($id);
         $player->update($request->all());
-
 
 
         return redirect()->route('admin.players.index');
@@ -113,7 +114,24 @@ class PlayersController extends Controller
         }
         $player = Player::findOrFail($id);
 
+
         return view('admin.players.show', compact('player'));
+    }
+
+    public function update_avatar(Request $request)
+    {
+        // Upload player's avatar
+        If($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ));
+
+            $player = Auth::user();
+            $player->avatar = $filename;
+            $player->save();
+        }
+
+        return view('admin.players.index');
     }
 
 

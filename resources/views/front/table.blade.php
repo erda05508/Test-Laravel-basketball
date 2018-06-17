@@ -11,7 +11,6 @@
                         <th>No</th>
                         <th>Team</th>
                         <th>Won</th>
-                        <th>Tied</th>
                         <th>Lost</th>
                         <th>Points</th>
                     </tr>
@@ -20,7 +19,6 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $team->name }}</td>
                             <td>{{ $team->won }}</td>
-                            <td>{{ $team->tied }}</td>
                             <td>{{ $team->lost }}</td>
                             <td>{{ $team->points }}</td>
                         </tr>
@@ -33,5 +31,48 @@
 
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Standings Table</h1>
+
+                <table class="table">
+                    <tr>
+                        <th>No</th>
+                        <th>Team</th>
+                        <th>Игры</th>
+                        <th>Очки</th>
+                        <th>2 очковые</th>
+                        <th>3 очковые</th>
+                        <th>Штрафные</th>
+                        <th>Передачи</th>
+                        <th>Подборы</th>
+                        <th>Перехваты</th>
+                        <th>Потери</th>
+                        <th>Фолы</th>
+                    </tr>
+
+
+                    @forelse($teams as $team)
+
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $team->name }}</td>
+                            <td>{{ $team->games }}</td>
+                            <td>{{ $team->points }}</td>
+                        @foreach($games as $game)
+                            <td>{{ $game->g2point1 }}</td>
+                            <td>{{ $game->g2point2 }}</td>
+                        @endforeach
+                        </tr>
+
+                    @empty
+
+                    @endforelse
+
+                </table>
+
+            </div>
+        </div>
+
     </div>
 @endsection
