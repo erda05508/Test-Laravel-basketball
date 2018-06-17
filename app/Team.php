@@ -91,34 +91,30 @@ class Team extends Model
      * @param $id
      * @return mixed
      */
-//    public function getG2pointAttribute()
+    public function stat($attr)
+    {
+        $sum1 = Game::where('team1_id', $this->attributes['id'])
+            ->sum($attr.'1');
+
+        $sum2 = Game::where('team2_id', $this->attributes['id'])
+            ->sum($attr.'2');
+
+        return $sum1 + $sum2;
+
+    }
+
+//    public function getG3pointAttribute()
 //    {
-//        return Game::where(function($g2point1) {
-//            $g2point1->where(function ($g2point2) {
-//                $g2point2->where('team1_id', $this->attributes['id']);
-//            })->orWhere(function ($g2point2) {
-//                $g2point2->where('team2_id', $this->attributes['id']);
-//            });
-//        })
-//        ->get();
+//        $sum1 = Game::where('team1_id', $this->attributes['id'])
+//            ->sum('g3point1');
 //
-//        $g2point1 = DB::table('games')
-//            ->where('team1_id', ['id'])
-//            ->get();
-//        /** @noinspection PhpUnreachableStatementInspection */
-//        $g2point2 = DB::table('games')
-//            ->where('team2_id', ['id'])
-//            ->get();
-//        $g2point = 0;
-//        foreach ($g2point1 as $game){
-//            $g2point += $game->g2point1;
-//        }
-//        foreach ($g2point2 as $game){
-//            $g2point += $game->g2point2;
-//        }
-//        dd($g2point);
-//}
+//        $sum2 = Game::where('team2_id', $this->attributes['id'])
+//            ->sum('g3point2');
 //
+//        return $sum1 + $sum2;
+//
+//    }
+
 //    public function getG2pointsAttribute()
 //    {
 //        return Game::where(function($query) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Team;
 use App\Game;
+use Illuminate\Support\Facades\DB;
 
 
 class TableController extends Controller
@@ -11,10 +12,9 @@ class TableController extends Controller
 
     public function index()
     {
-        $teams = Team::all()->sortByDesc('points');
-        $games = Game::all();
+        $teams = Team::all();
 
-        return view('front.table', compact('teams', 'games'));
+        return view('front.table', compact('teams'));
     }
 
     public function show($team1_id, $team2_id)

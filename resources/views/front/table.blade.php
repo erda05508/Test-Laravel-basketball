@@ -14,6 +14,7 @@
                         <th>Lost</th>
                         <th>Points</th>
                     </tr>
+
                     @forelse($teams as $team)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -59,10 +60,14 @@
                             <td>{{ $team->name }}</td>
                             <td>{{ $team->games }}</td>
                             <td>{{ $team->points }}</td>
-                        @foreach($games as $game)
-                            <td>{{ $game->g2point1 }}</td>
-                            <td>{{ $game->g2point2 }}</td>
-                        @endforeach
+                            <td>{{ $team->stat('g2point') }}</td>
+                            <td>{{ $team->stat('g3point') }}</td>
+                            <td>{{ $team->stat('fine') }}</td>
+                            <td>{{ $team->stat('transfers') }}</td>
+                            <td>{{ $team->stat('rebounds') }}</td>
+                            <td>{{ $team->stat('interceptions') }}</td>
+                            <td></td>
+                            <td>{{ $team->stat('fouls') }}</td>
                         </tr>
 
                     @empty
