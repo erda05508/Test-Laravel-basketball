@@ -102,51 +102,15 @@ class Team extends Model
         return $sum1 + $sum2;
 
     }
+    public function statis($attrr)
+    {
+        $avg1 = Game::where('team1_id', $this->attributes['id'])
+            ->avg($attrr.'1');
 
-//    public function getG3pointAttribute()
-//    {
-//        $sum1 = Game::where('team1_id', $this->attributes['id'])
-//            ->sum('g3point1');
-//
-//        $sum2 = Game::where('team2_id', $this->attributes['id'])
-//            ->sum('g3point2');
-//
-//        return $sum1 + $sum2;
-//
-//    }
+        $avg2 = Game::where('team2_id', $this->attributes['id'])
+            ->avg($attrr.'2');
 
-//    public function getG2pointsAttribute()
-//    {
-//        return Game::where(function($query) {
-//            $query->where('team1_id', $this->attributes['id'])->orWhere('team2_id', $this->attributes['id']);
-//        })
-//            ->max('g2_point1');
-//    }
+        return $avg1 + $avg2;
 
-    /**
-     *
-     */
-//    public function getPdoAttribute()
-//    {
-//        return Game::where('g2_point1', 'team1_id')->get();
-//    }
-//
-//    public function getVdoAttribute()
-//    {
-//        return Game::whereNotNull('g2_point1')
-//            ->where(function($query) {
-//                $query->where(function($query2) {
-//                    $query2->where('team1_id', $this->attributes['id'])->whereRaw('g2_point1 < g2_point2');
-//                })->orWhere(function($query2) {
-//                    $query2->where('team2_id', $this->attributes['id'])->whereRaw('g2_point1 > g2_point2');
-//                });
-//            })
-//            ->sum('g2_point1');
-//    }
-//
-//    public function getG2pointsAttribute()
-//    {
-//        return $this->getPdoAttribute() + $this->getVdoAttribute();
-//    }
-
+    }
 }
